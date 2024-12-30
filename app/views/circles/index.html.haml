@@ -1,0 +1,25 @@
+%h1 Listing circles
+
+%table
+  %thead
+    %tr
+      %th Slug
+      %th Name
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @circles.each do |circle|
+      %tr
+        %td= circle.slug
+        %td= circle.name
+        %td= circle.description
+        %td= link_to 'Show', circle
+        %td= link_to 'Edit', edit_circle_path(circle)
+        %td= link_to 'Destroy', circle, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Circle', new_circle_path
